@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
         } else {
             if (argc > 3 && args[1] == "-c") {
                 std::vector<std::istream *> streams;
-                for (size_t i = 3; i < argc; ++i) {
+                for (size_t i = 3; i < static_cast<size_t>(argc); ++i) {
                     if (std::ifstream(args[i])){
                         streams.emplace_back(new std::ifstream(args[i], std::ios::binary));
                         before_compress += FileSize(args[i]);
